@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>나는야! 미래의 여행 기획자 | 학생용 최종 확정본</title>
+<style>
+:root{--ink:#24343b;--muted:#667b84;--line:#dbe8ed;--sky:#eaf7fb;--mint:#edf9f3;--cream:#fff9e8;--accent:#3d829a}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,"Noto Sans KR",sans-serif;color:var(--ink);background:#f7fbfc;line-height:1.6}
+header{padding:42px 18px 28px;background:linear-gradient(135deg,#eef9fc,#fff9ec);text-align:center}
+header h1{margin:6px 0;font-size:clamp(30px,5vw,48px)} header p{margin:8px auto;max-width:800px;color:var(--muted)}
+.pill{display:inline-block;padding:6px 11px;margin:5px 3px;border-radius:999px;background:white;border:1px solid var(--line);font-size:13px;font-weight:700}
+nav{position:sticky;top:0;z-index:20;display:flex;gap:7px;justify-content:center;flex-wrap:wrap;padding:10px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+nav button,.btn{border:0;border-radius:10px;padding:10px 14px;background:#eaf5f8;color:#28586a;font-weight:800;cursor:pointer}
+nav button.active{background:#3d829a;color:#fff} .btn.alt{background:#f2f3f4;color:#526168}
+main{max-width:1050px;margin:22px auto;padding:0 15px 60px} .tab{display:none} .tab.active{display:block}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin:14px 0;box-shadow:0 4px 16px rgba(42,77,89,.05)}
+h2{margin-top:0} h3{margin:22px 0 10px} .note{background:var(--cream);border:1px solid #efdca2;border-radius:13px;padding:14px 16px}
+.blue{background:var(--sky);padding:14px 16px;border-radius:13px} .mint{background:var(--mint);padding:14px 16px;border-radius:13px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px} .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+label{font-weight:800;font-size:14px} input,textarea{width:100%;padding:10px;border:1px solid #cbdce3;border-radius:9px;font:inherit;margin-top:5px;background:white}
+textarea{min-height:80px;resize:vertical} table{width:100%;border-collapse:collapse;margin:10px 0} th,td{border:1px solid var(--line);padding:10px;vertical-align:top} th{background:#f2f8fa}
+.example{background:#fbfdff;border:1px solid #d7e8ef;border-radius:15px;padding:17px;margin:13px 0} .tag{display:inline-block;background:#edf7fa;padding:4px 9px;border-radius:999px;font-size:12px;font-weight:800}
+.savebar{position:sticky;bottom:10px;z-index:15;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:9px;border-radius:14px;background:rgba(255,255,255,.96);border:1px solid var(--line);box-shadow:0 3px 14px rgba(0,0,0,.08)}
+.small{font-size:13px;color:var(--muted)} .day{border-left:4px solid #a8d6e4}
+@media(max-width:720px){.grid,.grid3{grid-template-columns:1fr}}
+@media print{#printHeader{display:block!important} nav,.savebar,.no-print,#example{display:none!important}.tab{display:block!important}body{background:#fff}.card{box-shadow:none;break-inside:avoid}}
+</style>
+
+<style>
+.today-box{background:#fffdf3;border:2px solid #f0d77b;border-radius:18px;padding:16px 18px;margin:14px 0 20px}
+.today-box h3{margin:0 0 10px;font-size:1.15rem}
+.today-steps{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.today-step{background:#fff;border:1px solid #e4d8a5;border-radius:999px;padding:8px 12px;font-weight:700}
+.today-arrow{font-weight:800;color:#8a7a46}
+.simple-save-note{background:#eef9f3;border:1px solid #b8dfc8;border-radius:12px;padding:10px 12px;margin:10px 0;font-size:.94rem}
+.final-actions{border:2px solid #8fc9d9;background:#f8fdff;border-radius:18px;padding:18px;margin-top:18px}
+@media(max-width:700px){.today-steps{display:block}.today-step{display:block;margin:7px 0}.today-arrow{display:none}}
+</style>
+
+</head>
+<body>
+<header>
+<div class="small">중국 문화 · 프로젝트 학습</div>
+<h1>나는야! 미래의 여행 기획자</h1>
+<p>우리 모둠만의 중국 여행 상품을 기획하고, Canva로 홍보 자료를 제작하여 Book Creator에서 발표해 봅시다.</p>
+<span class="pill">💡 작성 예시</span><span class="pill">1차시 기획·조사</span><span class="pill">2차시 Canva 제작</span><span class="pill">3차시 발표·성찰</span>
+</header>
+
+<nav>
+<button data-tab="example" onclick="showTab('example')">💡 작성 예시</button>
+<button data-tab="c1" onclick="showTab('c1')">1차시 여행 기획</button>
+<button data-tab="c2" onclick="showTab('c2')">2차시 Canva 제작</button>
+<button data-tab="c3" onclick="showTab('c3')">3차시 발표·성찰</button>
+</nav>
+
+<main>
+<div id="printHeader" style="display:none">
+<h1 style="text-align:center;margin-bottom:8px">나는야! 미래의 여행 기획자</h1>
+<p id="printMeta" style="text-align:center"></p>
+<hr>
+</div>
+
+<section class="card">
+<div class="grid3">
+<div><label>반
+<select id="classNo" style="width:100%;padding:10px;border:1px solid #cbdce3;border-radius:9px;font:inherit;margin-top:5px;background:white">
+<option value="">소속 반 선택</option><option value="1반">1반</option><option value="8반">8반</option><option value="2반">2반</option><option value="9반">9반</option>
+</select></label></div>
+<div><label>번호<input id="studentNo" placeholder="예: 12번"></label></div>
+<div><label>이름<input id="studentName" placeholder="이름"></label></div>
+</div>
+<p class="small">✓ 작성 내용은 자동 저장돼요. 수업이 끝나기 전에 「💾 저장」을 한 번 눌러주세요. 다음 시간에도 같은 태블릿과 브라우저에서 QR로 접속하면 이어서 작성할 수 있어요.</p>
+</section>
+
+<section id="example" class="tab card">
+<h2>💡 작성 예시 | 시간여행 상하이</h2>
+<div class="note"><b>예시 사용 안내</b>　아래 내용은 작성 방법을 이해하기 위한 참고 예시입니다. 그대로 사용하지 말고, <b>우리 모둠만의 여행지와 테마</b>를 정하여 실제 정보를 조사해 작성하세요.</div>
+
+<div class="example">
+<span class="tag">여행 상품 기본 정보</span>
+<div class="grid">
+<p><b>여행지</b><br>상하이</p><p><b>기간</b><br>3박 4일</p>
+<p><b>여행 테마</b><br>전통과 현대가 공존하는 상하이 문화 여행</p>
+<p><b>추천 대상</b><br>중국의 전통문화와 현대 도시를 함께 경험하고 싶은 고등학생</p>
+<p><b>여행 상품명</b><br>시간여행 상하이</p>
+<p><b>한 줄 소개</b><br>옛 상하이의 흔적부터 현대적인 도시 풍경까지 만나는 3박 4일 여행</p>
+</div></div>
+
+<div class="example">
+<span class="tag">DAY 1 작성 예시</span>
+<p><b>이동 동선</b>　공항 → 숙소 → 난징루 → 와이탄</p>
+<p><b>볼거리·문화체험</b>　난징루와 와이탄 일대의 도시 경관을 살펴보고 전통과 현대가 공존하는 상하이의 특징 탐색</p>
+<p><b>먹거리</b>　상하이 지역의 대표 음식과 식당 조사</p>
+<p><b>이동시간·예상 비용·확인 사항</b>　공항에서 시내까지의 교통편, 이동시간, 비용을 실제 자료로 확인</p>
+</div>
+
+<div class="example">
+<span class="tag">나머지 일정은 이렇게 확장해요</span>
+<p><b>DAY 2 | 전통 상하이를 만나다</b><br>예원 → 주변 전통 거리·문화 공간 / 전통 정원과 건축 특징 탐색 / 운영시간·입장료·이동시간 확인</p>
+<p><b>DAY 3 | 현대 상하이 탐방</b><br>푸둥 지역 → 현대 도시 경관 탐방 / 실제 방문 가능한 장소·예약 여부·비용 확인</p>
+<p><b>DAY 4 | 여행 마무리</b><br>숙소 → 마지막 탐방 → 공항 / 항공편 시간에 맞춘 이동 계획 확인</p>
+</div>
+
+<div class="blue"><b>직접 조사해야 할 정보</b>　항공편, 숙박, 관광지 운영시간·입장료, 식당, 이동시간, 실제 비용 등은 최신 자료를 직접 찾아 확인하고 <b>자료의 출처</b>를 기록합니다.</div>
+
+<div class="example">
+<span class="tag">2차시 Canva로 연결하면?</span>
+<p><b>홍보 포인트 ①</b> 전통적인 공간과 현대적인 도시 경관을 함께 만나는 여행</p>
+<p><b>홍보 포인트 ②</b> 상하이의 역사·건축·음식 문화를 함께 체험</p>
+<p><b>홍보 포인트 ③</b> 낮의 문화 탐방과 밤의 도시 풍경을 모두 즐기는 일정</p>
+<p><b>슬로건</b> “과거와 미래가 만나는 도시, 상하이로 떠나자!”</p>
+</div>
+<p style="text-align:center"><button class="btn" onclick="showTab('c1')">✈️ 이제 우리 모둠 여행 상품 기획하기 →</button></p>
+</section>
+
+<section id="c1" class="tab card">
+<h2>1차시 | 우리 모둠 여행 상품 기획하기</h2>
+<div class="grid3">
+<label>모둠명<input id="team"></label><label>모둠장<input id="leader"></label><label>모둠원<input id="members"></label>
+</div>
+<div class="grid">
+<label>여행지<input id="place" placeholder="예: 상하이"></label>
+<div><label>여행 기간</label><p><label><input type="radio" name="days" value="4" checked> 3박 4일</label>　<label><input type="radio" name="days" value="5"> 4박 5일</label></p></div>
+</div>
+<label>여행 주제(테마)<textarea id="theme"></textarea></label>
+<div class="grid">
+<label>여행 상품명<input id="product"></label><label>추천 대상<input id="target"></label>
+</div>
+<label>한 줄 설명(소개)<textarea id="intro"></textarea></label>
+<div class="grid3">
+<label>출발/도착 교통편<textarea id="transport"></textarea></label>
+<label>숙박<textarea id="hotel"></textarea></label>
+<label>1인 예산<textarea id="budget"></textarea></label>
+</div>
+<h3>여행 일정</h3>
+<div class="note"><b>여행 기간에 맞게 작성하세요.</b>　3박 4일은 DAY 1~4, 4박 5일은 DAY 1~5가 표시됩니다. 마지막 날도 귀국 시간에 맞추어 관광·식사·공항 이동 등을 실제 가능한 일정으로 구성하세요.</div>
+<div id="daysBox"></div>
+<h3>조사 자료 및 출처</h3>
+<label>자료명·사이트명·페이지 등<textarea id="sources" placeholder="실제 여행이 가능한지 확인할 수 있도록 출처를 기록하세요."></textarea></label>
+<div class="note"><b>1차시 마무리</b>　작성 내용을 확인한 뒤 화면 아래의 <b>「💾 저장」</b>을 한 번 눌러주세요. 다음 차시에도 같은 태블릿·같은 브라우저에서 같은 QR로 접속하면 작성 내용이 자동으로 이어집니다.</div><div class="mint"><b>1차시 점검</b>　□ 테마가 분명한가?　□ 일자별 이동 동선이 자연스러운가?　□ 중국 문화 체험이 포함되어 있는가?　□ 교통·숙박·비용을 확인했는가?　□ 출처를 기록했는가?</div>
+</section>
+
+<section id="c2" class="tab card">
+<h2>2차시 | Canva로 여행 상품 PPT 만들기</h2>
+<div class="blue"><b>오늘의 목표</b>　1차시 기획안을 다시 확인하고 부족한 정보를 보완한 뒤, 핵심 정보를 선별하여 여행 상품의 매력이 잘 드러나는 PPT를 제작합니다.</div>
+<h3>① 부족한 자료 조사·보완</h3>
+<textarea id="supplement" placeholder="추가로 확인하거나 수정한 내용을 기록하세요."></textarea>
+<h3>② 우리 상품의 핵심 홍보 포인트</h3>
+<div class="grid3"><label>포인트 1<textarea id="p1"></textarea></label><label>포인트 2<textarea id="p2"></textarea></label><label>포인트 3<textarea id="p3"></textarea></label></div>
+<label>홍보 문구(슬로건)<input id="slogan"></label>
+<h3>③ Canva PPT 구성</h3>
+<table><tr><th>슬라이드</th><th>넣을 내용</th></tr><tr><td>표지</td><td>여행 상품명·테마·대표 이미지</td></tr><tr><td>상품 소개</td><td>추천 대상·한 줄 소개·핵심 특징</td></tr><tr><td>전체 일정</td><td>3박4일/4박5일 일정 요약</td></tr><tr><td>세부 일정</td><td>이동 동선·관광지·문화체험·먹거리</td></tr><tr><td>프로모션</td><td>핵심 홍보 포인트·슬로건·출처</td></tr>
+<tr><td><b>마지막 장: 여행 홍보 리플렛</b></td><td><b>여행 상품의 핵심 내용을 한눈에 보여 주는 1장 홍보물</b></td></tr></table>
+<p class="no-print" style="text-align:center"><a class="btn" href="https://www.canva.com/brand/join?token=vLJIvALfcxSfSPOXVSyExw&brandingVariant=edu&referrer=team-invite" target="_blank" rel="noopener">🎨 Canva로 이동하기</a></p>
+<div class="note"><b>2차시 마무리</b>　Canva 제작과 HTML 기록을 확인한 뒤 화면 아래의 <b>「💾 저장」</b>을 한 번 눌러주세요.</div><div class="mint"><b>2차시 점검</b>　□ 여행 테마와 PPT가 일관되는가?　□ 부족한 정보를 보완했는가?　□ 실제 가능한 여행인가?　□ 자료 출처를 표시했는가?</div>
+</section>
+
+<section id="c3" class="tab card">
+<h2>3차시 | Book Creator 발표·피드백·성찰</h2>
+<h3>① Canva 발표자료 PDF 준비하기</h3>
+<p>Canva에서 PPT를 완성한 뒤 <b>공유 → 다운로드 → PDF</b>로 저장합니다. 모둠당 발표자료 PDF는 <b>1개만</b> 준비합니다.</p>
+<h3>② Book Creator에 결과물 공유하기</h3>
+<p class="no-print" style="text-align:center"><a class="btn" href="https://app.bookcreator.com/l/-P0PZo_ciURQq2JLDq-s?c=K8FNSXH" target="_blank" rel="noopener">📚 우리 반 중국 여행 박람회 입장하기</a></p>
+<div class="note" style="margin-top:12px">
+<b>📌 Book Creator 책 제목 작성 규칙</b><br>
+한 라이브러리를 함께 사용하므로 <b>[합반] 모둠명_여행상품명</b> 형식으로 제목을 작성하세요.<br>
+예) <b>[1·8반] 2모둠_시간여행 상하이</b> / <b>[2·9반] 1모둠_베이징 역사 여행</b><br>
+<span class="small">※ 모둠당 1개의 Canva 발표자료 PDF만 업로드합니다. 우리 반 발표 시간에는 제목 앞의 합반 표시를 확인하세요.</span>
+</div>
+<h3>③ 모둠별 여행 상품 발표하기</h3>
+<div class="blue">발표에서는 <b>여행 테마·추천 대상 → 가장 추천하는 코스와 문화체험 → 우리 상품의 핵심 매력 → 슬로건</b>을 중심으로 설명합니다.</div>
+<h3>④ 다른 모둠 여행 상품 살펴보기</h3>
+<p>테마 · 중국 문화 · 실현 가능성 · 프로모션의 관점에서 살펴봅시다.</p>
+<label>가장 가보고 싶은 다른 모둠의 여행 상품과 그 이유<textarea id="peer"></textarea></label>
+<h3>⑤ 활동을 마치며</h3>
+<label>① 여행 상품을 기획하면서 새롭게 알게 된 중국의 지역·문화적 특징은 무엇인가?<textarea id="r1"></textarea></label>
+<label>② 여행 상품을 기획하고 프로모션 자료를 제작하는 과정에서 내가 맡은 역할과 기여한 점은 무엇인가?<textarea id="r2"></textarea></label>
+<label>③ 다른 모둠의 여행 상품 프로모션을 보고 인상 깊었던 점 또는 우리 상품에 보완하고 싶은 점은 무엇인가?<textarea id="r3"></textarea></label>
+
+
+
+
+<div class="card" style="border:2px solid #8fc9d9;background:#f8fdff">
+<h3>🏁 마지막! 최종 제출</h3>
+<div class="note"><b>발표와 성찰까지 모두 끝났다면 아래 3단계만 하면 완료!</b></div>
+
+<div class="grid3" style="margin-top:14px">
+<div class="example">
+<span class="tag">STEP 1</span>
+<h3>💾 최종 저장</h3>
+<p>작성 내용을 확인하고 <b>저장</b> 버튼을 누릅니다.</p>
+<button class="btn no-print" onclick="manualSave()">💾 최종 저장</button>
+</div>
+<div class="example">
+<span class="tag">STEP 2</span>
+<h3>📄 제출용 PDF 만들기</h3>
+<p>버튼을 누른 뒤 인쇄 화면에서 <b>대상/프린터 → PDF로 저장</b>을 선택합니다.</p>
+<button class="btn no-print" onclick="preparePdf()">📄 최종 제출용 PDF 만들기</button>
+</div>
+<div class="example">
+<span class="tag">STEP 3</span>
+<h3>📮 Padlet에 제출</h3>
+<p>합반 Padlet에서 <b>새 게시물(+) → 첨부 → 파일</b>을 선택하고 방금 저장한 PDF를 첨부한 뒤 게시합니다.</p>
+</div>
+</div>
+
+<div class="no-print" style="margin-top:14px;text-align:center">
+<div id="padletGuide" class="blue" style="margin-bottom:10px">위에서 <b>소속 반</b>을 선택하면 제출할 합반 Padlet이 자동으로 표시됩니다.</div>
+<a id="padletSubmit" class="btn" href="#" target="_blank" rel="noopener" style="display:none;text-align:center;text-decoration:none"></a>
+</div>
+
+<div class="blue" style="margin-top:14px">
+<b>제출 파일 확인</b><br>
+파일 이름 예시: <b>8반_12번_홍길동_중국여행프로젝트_최종.pdf</b><br>
+Padlet 게시물 제목: <b>8반 12번 홍길동</b><br>
+<b>제출 완료 기준:</b> Padlet 게시물에 PDF 파일이 첨부되어 있고 게시까지 완료된 상태
+</div>
+</div>
+<div class="mint"><b>최종 확인</b>　□ 1차시 여행 기획 완료　□ Canva PPT 완성　□ PDF 저장　□ Book Creator 공유　□ 모둠 발표　□ 동료 피드백·성찰 완료</div>
+</section>
+
+<div class="savebar">
+<span class="small"><b>✓ 작성 내용은 자동 저장돼요.</b> 수업이 끝나기 전에 「💾 저장」을 한 번 눌러주세요.</span>
+<button class="btn" onclick="manualSave()">💾 저장</button>
+
+<span id="saveStatus" class="small" aria-live="polite"></span>
+</div>
+</main>
+
+<script>
+const ids=['classNo','studentNo','studentName','team','leader','members','place','theme','product','target','intro','transport','hotel','budget','sources','supplement','p1','p2','p3','slogan','peer','r1','r2','r3'];
+for(let i=1;i<=5;i++) for(const x of ['r','s','f','i']) ids.push('d'+i+x);
+function showTab(id){
+ document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function dayCount(){return Number(document.querySelector('input[name="days"]:checked')?.value||4)}
+function makeDays(){
+ const n=dayCount(), box=document.getElementById('daysBox'); box.innerHTML='';
+ for(let i=1;i<=n;i++) box.insertAdjacentHTML('beforeend',`<div class="card day"><h3>DAY ${i}</h3><div class="grid"><label>1일 코스 (이동 동선)<textarea id="d${i}r"></textarea></label><label>볼거리 (추천 장소 및 문화체험)<textarea id="d${i}s"></textarea></label><label>먹거리 (추천 메뉴 및 식당)<textarea id="d${i}f"></textarea></label><label>이동시간·예상 비용·확인 사항<textarea id="d${i}i"></textarea></label></div></div>`);
+}
+function collect(){
+ const f={}; ids.forEach(id=>{const e=document.getElementById(id); if(e)f[id]=e.value});
+ return {version:1,savedAt:new Date().toISOString(),days:dayCount(),fields:f,checks:{}};
+}
+function autosave(){
+ localStorage.setItem('chinaTravelProject',JSON.stringify(collect()));
+ const s=document.getElementById('saveStatus');
+ if(s) s.textContent='자동 저장됨';
+}
+function manualSave(){
+ autosave();
+ const s=document.getElementById('saveStatus');
+ if(s){
+   const now=new Date();
+   s.textContent='✓ 저장되었습니다. ('+now.toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})+')';
+ }
+}
+function restoreFields(){
+ try{const d=JSON.parse(localStorage.getItem('chinaTravelProject')||'null'); if(!d)return;
+ if(d.days){const r=document.querySelector(`input[name="days"][value="${d.days}"]`);if(r&&!r.checked)r.checked=true}
+ Object.entries(d.fields||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e)e.value=v??''});
+ }catch(e){}
+}
+
+
+function preparePdf(){
+ const f=collect().fields;
+ const old=document.title;
+ const cls=(f.classNo||'반').trim(), no=(f.studentNo||'번호').trim(), nm=(f.studentName||'이름').trim();
+ document.title=`${cls}_${no}_${nm}_중국여행프로젝트_최종`;
+ const meta=document.getElementById('printMeta');
+ if(meta) meta.textContent=`${cls} · ${no} · ${nm}　|　모둠: ${f.team||'-'}　|　여행지: ${f.place||'-'}　|　테마: ${f.theme||'-'}`;
+ window.print();
+ setTimeout(()=>{document.title=old},1200);
+}
+
+function updatePadletButton(){
+ const cls=document.getElementById('classNo')?.value||'';
+ const a=document.getElementById('padletSubmit'), g=document.getElementById('padletGuide');
+ if(!a||!g)return;
+ if(cls==='1반'||cls==='8반'){
+   a.href='https://padlet.com/yeaju1/2-1-8-s0248k2o3ezldprbaczz';
+   a.textContent='📮 1·8반 합반 Padlet에 최종 제출';
+   a.style.display='inline-block';
+   g.innerHTML='<b>'+cls+'</b> 학생은 <b>1·8반 합반 Padlet</b>에 제출합니다.';
+ }else if(cls==='2반'||cls==='9반'){
+   a.href='https://padlet.com/yeaju1/2-2-9-s0248k5h36dahysz9wwo';
+   a.textContent='📮 2·9반 합반 Padlet에 최종 제출';
+   a.style.display='inline-block';
+   g.innerHTML='<b>'+cls+'</b> 학생은 <b>2·9반 합반 Padlet</b>에 제출합니다.';
+ }else{
+   a.style.display='none'; a.href='#';
+   g.innerHTML='위에서 <b>소속 반</b>을 선택하면 제출할 합반 Padlet이 자동으로 표시됩니다.';
+ }
+}
+
+document.addEventListener('input',autosave);
+document.addEventListener('change',e=>{
+ if(e.target.name==='days'){
+   const snapshot=collect();
+   localStorage.setItem('chinaTravelProject',JSON.stringify(snapshot));
+   makeDays();
+   restoreFields();
+ }
+ if(e.target.id==='classNo')updatePadletButton();
+ autosave();
+});
+restoreFields();
+makeDays();
+restoreFields();
+updatePadletButton();
+showTab('example');
+</script>
+</body></html>
